@@ -6,9 +6,7 @@ import 'package:getx_project/views/widgets/textfield_widget.dart';
 
 class EditprofileScreen extends StatelessWidget {
   EditprofileScreen({super.key});
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController ageController = TextEditingController();
+
   final Controller = Get.put(Profilecontroller());
 
   @override
@@ -25,7 +23,7 @@ class EditprofileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             TextfieldWidget(
-              controller: nameController,
+              controller: Controller.nameController.value,
               hintText: 'Enter your name',
               labelText: 'Name',
               errorText: 'Please enter a valid name',
@@ -38,7 +36,7 @@ class EditprofileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             TextfieldWidget(
-              controller: emailController,
+              controller: Controller.emailController.value,
               hintText: 'Enter your email',
               labelText: 'Email',
 
@@ -53,7 +51,7 @@ class EditprofileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             TextfieldWidget(
-              controller: ageController,
+              controller: Controller.ageController.value,
               hintText: 'Enter your age',
               labelText: 'Age',
               errorText: 'Please enter a valid age',
@@ -68,13 +66,13 @@ class EditprofileScreen extends StatelessWidget {
             MainButtonWidget(
               TextButton: 'Save Changes',
               onPressed: () {
-                if (nameController.text.isNotEmpty &&
-                    emailController.text.isNotEmpty &&
-                    ageController.text.isNotEmpty) {
+                if (Controller.nameController.value.text.isNotEmpty &&
+                    Controller.emailController.value.text.isNotEmpty &&
+                    Controller.ageController.value.text.isNotEmpty) {
                   Controller.updateProfile(
-                    nameController.text,
-                    emailController.text,
-                    ageController.text,
+                    Controller.nameController.value.text,
+                    Controller.emailController.value.text,
+                    Controller.ageController.value.text,
                   );
                   Get.back();
                 } else {

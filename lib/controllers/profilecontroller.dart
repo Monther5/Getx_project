@@ -1,6 +1,11 @@
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 class Profilecontroller extends GetxController {
+  final Rx<TextEditingController> nameController = TextEditingController().obs;
+  final Rx<TextEditingController> emailController = TextEditingController().obs;
+  final Rx<TextEditingController> ageController = TextEditingController().obs;
+
   var name = 'name  '.obs;
   var email = 'email'.obs;
   var Age = 'Age'.obs;
