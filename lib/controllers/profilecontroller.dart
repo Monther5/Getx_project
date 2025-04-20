@@ -2,9 +2,9 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class Profilecontroller extends GetxController {
+  final Rx<TextEditingController> ageController = TextEditingController().obs;
   final Rx<TextEditingController> nameController = TextEditingController().obs;
   final Rx<TextEditingController> emailController = TextEditingController().obs;
-  final Rx<TextEditingController> ageController = TextEditingController().obs;
 
   var name = 'name  '.obs;
   var email = 'email'.obs;
@@ -20,5 +20,8 @@ class Profilecontroller extends GetxController {
     name.value = '';
     email.value = '';
     Age.value = '';
+    nameController.value.clear();
+    emailController.value.clear();
+    ageController.value.clear();
   }
 }
